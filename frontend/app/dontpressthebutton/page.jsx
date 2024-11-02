@@ -125,11 +125,17 @@ export default function Home() {
         Press Me
         <div className="animate-bounce">
             <Image
-              src="https://media.tenor.com/01-nfVtwVAgAAAAi/joy-bunny.gif" // Add a fun party popper gif
+              src="joy-bunny.gif" // Add a fun party popper gif
               alt="Party Popper"
               width={350}
               height={350}
             />
+            {/* <Image
+              src="https://media.tenor.com/01-nfVtwVAgAAAAi/joy-bunny.gif" // Add a fun party popper gif
+              alt="Party Popper"
+              width={350}
+              height={350}
+            /> */}
           </div>
 
       </motion.button>

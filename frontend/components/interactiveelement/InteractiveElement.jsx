@@ -1,8 +1,18 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { Github } from 'lucide-react';
+
+// Move the keyframe animations to a CSS module or add them to your global CSS
+const animationStyles = {
+  shake: {
+    animation: 'shake 0.5s ease-in-out',
+  },
+  float: {
+    animation: 'float 1s ease-out forwards',
+  },
+};
 
 const InteractiveElement = ({ children }) => {
   const [message, setMessage] = useState('');
@@ -38,26 +48,27 @@ const InteractiveElement = ({ children }) => {
       <div className="relative">
         <div
           onClick={handleClick}
-          className={`inline-block cursor-pointer transition-all duration-200 ${
-            isShaking ? 'animate-shake' : ''
-          }`}
+          className={`inline-block cursor-pointer transition-all duration-200`}
           style={{
             transform: `scale(${scale})`,
             backgroundColor,
             padding: '8px',
-            borderRadius: '8px'
+            borderRadius: '8px',
+            ...(isShaking ? animationStyles.shake : {})
           }}
         >
           {children}
         </div>
         {message && (
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full text-xl font-bold animate-float">
+          <div 
+            className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full text-xl font-bold"
+            style={animationStyles.float}
+          >
             {message}
           </div>
         )}
       </div>
 
-      {/* Beautiful Tagline and Social Links */}
       <footer className="w-full max-w-md mx-auto text-center">
         <div className="mb-4 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-200 to-transparent h-px" />
@@ -68,14 +79,13 @@ const InteractiveElement = ({ children }) => {
         </div>
         
         <div className="mt-4 flex justify-center space-x-4">
-        <a 
+          <a 
             href="https://github.com/govindhansv" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors duration-200"
           >
             <span className="text-sm">@govindhansv</span>
-
             <Github className="w-5 h-5" />
           </a>
           <a 
@@ -86,37 +96,11 @@ const InteractiveElement = ({ children }) => {
           >
             <Github className="w-5 h-5" />
             <span className="text-sm">@noobvp69</span>
-
           </a>
-          
         </div>
       </footer>
     </div>
   );
 };
-
-// Required CSS keyframes for animations
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
-  }
-
-  @keyframes float {
-    0% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(-20px); }
-  }
-
-  .animate-shake {
-    animation: shake 0.5s ease-in-out;
-  }
-
-  .animate-float {
-    animation: float 1s ease-out forwards;
-  }
-`;
-document.head.appendChild(style);
 
 export default InteractiveElement;
