@@ -32,8 +32,11 @@ const DecisionMaker = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const [isSpinning, setIsSpinning] = useState(false);
   const [category, setCategory] = useState('');
-  const [showEmojis, setShowEmojis] = useState(true);
+  const [showEmojis, setShowEmojis] = useState(false);
 
+  useEffect(() => {
+    setShowEmojis(true); // Trigger the animation on mount
+  }, []);
   const makeDecision = async (selectedCategory) => {
     setCategory(selectedCategory);
     setIsSpinning(true);
@@ -62,33 +65,34 @@ const DecisionMaker = () => {
     >
       {/* Floating emojis background */}
       <div className="fixed inset-0 pointer-events-none">
-        <AnimatePresence>
-          {showEmojis && (
-            Array.from({ length: 20 }).map((_, i) => (
-              <motion.div
-                key={i}
-                initial={{ 
-                  x: Math.random() * window.innerWidth,
-                  y: -50,
-                  opacity: 0
-                }}
-                animate={{
-                  y: window.innerHeight + 50,
-                  opacity: [0, 1, 0],
-                  rotate: [0, 360]
-                }}
-                transition={{
-                  duration: Math.random() * 5 + 5,
-                  repeat: Infinity,
-                  delay: Math.random() * 5
-                }}
-                className="absolute text-2xl"
-              >
-                {['🎲', '✨', '🎮', '🎯', '🎨'][Math.floor(Math.random() * 5)]}
-              </motion.div>
-            ))
-          )}
-        </AnimatePresence>
+      <AnimatePresence>
+      {showEmojis && (
+        Array.from({ length: 20 }).map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{
+              x: Math.random() * window.innerWidth,
+              y: -50,
+              opacity: 0
+            }}
+            animate={{
+              y: window.innerHeight + 50,
+              opacity: [0, 1, 0],
+              rotate: [0, 360]
+            }}
+            transition={{
+              duration: Math.random() * 5 + 5,
+              repeat: Infinity,
+              delay: Math.random() * 5
+            }}
+            className="absolute text-2xl"
+          >
+            {['🎲', '✨', '🎮', '🎯', '🎨'][Math.floor(Math.random() * 5)]}
+          </motion.div>
+        ))
+      )}
+    </AnimatePresence>
+
       </div>
 
       {/* Main content */}

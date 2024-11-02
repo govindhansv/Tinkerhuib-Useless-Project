@@ -64,7 +64,7 @@ const QuotesDisplay = () => {
               <div className={`space-y-6 ${isRotating ? 'animate-spin-slow' : ''}`}>
                 <Quote className="w-12 h-12 mx-auto text-purple-500 animate-pulse" />
                 <p className="text-2xl font-semibold text-gray-700 dark:text-gray-200">
-                  "{currentQuote.text}"
+                &quot;{currentQuote.text}&quot;
                 </p>
                 <p className="text-lg text-gray-500 dark:text-gray-400">
                   - {currentQuote.author} 😎

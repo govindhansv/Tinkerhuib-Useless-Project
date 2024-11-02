@@ -108,7 +108,7 @@ const FakeNewsGenerator = () => {
             The Daily Chuckle 🗞️
           </h1>
           <p className="text-gray-600 italic">
-            "Where Reality Takes a Coffee Break"
+          &quot;Where Reality Takes a Coffee Break&quot;
           </p>
         </motion.div>
 
@@ -167,7 +167,7 @@ const FakeNewsGenerator = () => {
         {/* Scrolling Headlines */}
         <div className="bg-gray-100 p-4 rounded-lg overflow-hidden">
           <motion.div
-            animate={{ x: [-1000, window.innerWidth] }}
+            animate={{ x:  ['-100%', '100%'] }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             className="whitespace-nowrap"
           >

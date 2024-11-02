@@ -203,7 +203,7 @@ export default function Home() {
             className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center"
           >
             <div className="text-4xl mb-4">🎉 Congratulations! 🎉</div>
-            <div className="text-white">You've found all the creatures and grown a beautiful tree!</div>
+            <div className="text-white">You&apos;ve found all the creatures and grown a beautiful tree!</div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -12,7 +12,7 @@ import {
 export default function Navbar() {
   return (
     <header className="px-4 lg:px-6 h-16 flex items-center border-b">
-      <div className="container flex items-center justify-between">
+      {/* <div className="container flex items-center justify-between">
         <a href="/" className="flex items-center space-x-2">
           <span className="font-bold text-xl">MyWebsite</span>
         </a>
@@ -46,7 +46,7 @@ export default function Navbar() {
           <Button variant="ghost">Login</Button>
           <Button>Sign Up</Button>
         </div>
-      </div>
+      </div> */}
     </header>
   );
 }

@@ -97,14 +97,14 @@ export default function Home() {
         animate={{ scale: isShaking ? [1, 1.02, 0.98, 1] : 1 }}
         transition={{ duration: 0.5 }}
       >
-        Don't Press the Button!
+        Don&apos;t Press the Button!
       </motion.h1>
 
       <motion.div
         className="text-2xl mb-6 font-semibold"
         animate={{ scale: pressCount % 10 === 0 && pressCount !== 0 ? [1, 1.2, 1] : 1 }}
       >
-        You've pressed the button{" "}
+        You&apos;ve pressed the button{" "}
         <span className="text-3xl font-bold text-primary">
           {pressCount}
         </span>{" "}
